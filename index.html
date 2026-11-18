@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Hub | Your Reading Space</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">L</div>
+            <div>
+                <h2>LIBRARY HUB</h2>
+                <small>THE READING CLUB</small>
+            </div>
+        </div>
+
+        <p class="nav-label">YOUR SPACE</p>
+
+        <nav>
+            <a href="#overview" class="nav-link active">⌂ Overview</a>
+            <a href="#explore" class="nav-link">▤ Explore Books</a>
+            <a href="#bookshelf" class="nav-link">▣ My Bookshelf</a>
+            <a href="#requests" class="nav-link">＋ Book Requests</a>
+            <a href="#history" class="nav-link">↺ Reading History</a>
+        </nav>
+
+        <div class="sidebar-quote">
+            <span>✦ A LITTLE REMINDER</span>
+            <h3>"A reader lives a thousand lives before he dies."</h3>
+            <small>— George R. R. Martin</small>
+        </div>
+
+        <div class="profile">
+            <div class="avatar">R</div>
+            <div>
+                <strong>Reader</strong>
+                <small>Library Member</small>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <span class="small-label">YOUR PERSONAL READING SPACE</span>
+                <h1>Good day, Reader. <span>✦</span></h1>
+                <p>A quiet place to discover something wonderful.</p>
+            </div>
+            <button class="theme-btn" id="themeBtn">☾</button>
+        </header>
+
+        <!-- DASHBOARD -->
+        <section id="overview">
+            <div class="welcome-banner">
+                <div>
+                    <span>✦ YOUR NEXT ADVENTURE</span>
+                    <h2>One more chapter?</h2>
+                    <p>Your next favourite book is waiting for you.</p>
+                    <a href="#explore" class="light-btn">Explore Collection →</a>
+                </div>
+                <div class="banner-decoration">📖</div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span>▣</span>
+                    <p>BOOKS BORROWED</p>
+                    <h2 id="borrowedCount">0</h2>
+                    <small>Currently with you</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>◷</span>
+                    <p>UPCOMING DUE</p>
+                    <h2 id="dueCount">0</h2>
+                    <small>Books to return</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>✧</span>
+                    <p>BOOKS READ</p>
+                    <h2 id="readCount">0</h2>
+                    <small>Completed books</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>⌁</span>
+                    <p>OPEN REQUESTS</p>
+                    <h2 id="requestCount">0</h2>
+                    <small>Waiting for library</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- POPULAR BOOKS -->
+        <section class="section" id="popular">
+            <div class="section-heading">
+                <div>
+                    <span class="small-label">HANDPICKED FOR YOU</span>
+                    <h2>Popular right now</h2>
+                </div>
+                <a href="#explore">View all books →</a>
+            </div>
+            <div class="book-grid" id="popularBooks"></div>
+        </section>
+
+        <!-- EXPLORE -->
+        <section class="section" id="explore">
+            <div class="collection-banner">
+                <span class="small-label">THE COLLECTION</span>
+                <h2>Find your next chapter.</h2>
+                <p>A world of ideas, stories and possibilities.</p>
+            </div>
+
+            <div class="search-area">
+                <input type="text" id="searchInput"
+                placeholder="⌕ Search title, author or keyword...">
+                <select id="genreFilter">
+                    <option value="All">All Genres</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Science">Science</option>
+                    <option value="Biography">Biography</option>
+                    <option value="Self-growth">Self-growth</option>
+                </select>
+            </div>
+
+            <div class="category-list">
+                <button class="category active" data-category="All">All Books</button>
+                <button class="category" data-category="Fiction">Fiction</button>
+                <button class="category" data-category="Fantasy">Fantasy</button>
+                <button class="category" data-category="Science">Science</button>
+                <button class="category" data-category="Biography">Biography</button>
+                <button class="category" data-category="Self-growth">Self-growth</button>
+            </div>
+
+            <div class="book-grid" id="allBooks"></div>
+        </section>
+
+        <!-- BOOKSHELF -->
+        <section class="section" id="bookshelf">
+            <div class="section-heading">
+                <div>
+                    <span class="small-label">YOUR PERSONAL STACK</span>
+                    <h2>My Bookshelf.</h2>
+                    <p>Keep track of the stories travelling with you.</p>
+                </div>
+            </div>
+            <div class="book-grid" id="myBooks"></div>
+        </section>
+
+        <!-- REQUESTS -->
+        <section class="section" id="requests">
+            <div class="section-heading">
+                <div>
+                    <span class="small-label">MAKE A SUGGESTION</span>
+                    <h2>What should we read next?</h2>
+                    <p>Tell the library which book you would love to see.</p>
+                </div>
+            </div>
+
+            <div class="request-card">
+                <form id="requestForm">
+                    <label>Book Title</label>
+                    <input type="text" id="requestTitle"
+                    placeholder="e.g. The Midnight Library" required>
+
+                    <label>Author Name</label>
+                    <input type="text" id="requestAuthor"
+                    placeholder="Author's name" required>
+
+                    <label>Why should we add it?</label>
+                    <textarea id="requestReason"
+                    placeholder="Tell us why you recommend this book..."></textarea>
+
+                    <button type="submit" class="primary-btn">
+                        Send Book Request →
+                    </button>
+                </form>
+            </div>
+            <div id="requestList"></div>
+        </section>
+
+        <!-- HISTORY -->
+        <section class="section" id="history">
+            <span class="small-label">YOUR READING JOURNEY</span>
+            <h2>Every book leaves a mark.</h2>
+            <p>A record of the books you have completed.</p>
+            <div id="historyList" class="history-list"></div>
+        </section>
+
+        <!-- LIBRARIAN -->
+        <section class="section" id="admin">
+            <span class="small-label">LIBRARY OPERATIONS</span>
+            <h2>The Librarian Desk.</h2>
+            <p>Manage the library collection and inventory.</p>
+
+            <div class="request-card">
+                <h3>Add to the collection</h3>
+                <form id="addBookForm">
+                    <label>Book Title</label>
+                    <input id="newTitle" placeholder="Enter book title" required>
+
+                    <label>Author</label>
+                    <input id="newAuthor" placeholder="Enter author name" required>
+
+                    <label>Genre</label>
+                    <select id="newGenre">
+                        <option>Fiction</option>
+                        <option>Fantasy</option>
+                        <option>Science</option>
+                        <option>Biography</option>
+                        <option>Self-growth</option>
+                    </select>
+
+                    <label>Book Cover Image URL (optional)</label>
+                    <input id="newImage" placeholder="Paste image URL">
+
+                    <button type="submit" class="primary-btn">＋ Add Book</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <h2>LIBRARY HUB</h2>
+            <p>Made for the love of reading ✦</p>
+            <small>© 2026 Library Hub. All rights reserved.</small>
+        </footer>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
